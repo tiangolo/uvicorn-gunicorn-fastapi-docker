@@ -171,7 +171,7 @@ Now you have an optimized FastAPI server in a Docker container. Auto-tuned for y
 
 ### Check it
 
-You should be able to check it in your Docker container's URL, for example: http://192.168.99.100/items/5?q=somequery.
+You should be able to check it in your Docker container's URL, for example: http://192.168.99.100/items/5?q=somequery or http://127.0.0.1/items/5?q=somequery (or equivalent, using your Docker host).
 
 You will see something like:
 
@@ -181,7 +181,7 @@ You will see something like:
 
 ### Interactive API docs
 
-Now you can go to <a href="http://192.168.99.100/docs" target="_blank">http://192.168.99.100/docs</a> (or equivalent, using your Docker host).
+Now you can go to <a href="http://192.168.99.100/docs" target="_blank">http://192.168.99.100/docs</a> or <a href="http://127.0.0.1/docs" target="_blank">http://127.0.0.1/docs</a> (or equivalent, using your Docker host).
 
 You will see the automatic interactive API documentation (provided by <a href="https://github.com/swagger-api/swagger-ui" target="_blank">Swagger UI</a>):
 
@@ -190,7 +190,7 @@ You will see the automatic interactive API documentation (provided by <a href="h
 
 ### Alternative API docs
 
-And you can also go to <a href="http://192.168.99.100/redoc" target="_blank">http://192.168.99.100/redoc</a> (or equivalent, using your Docker host).
+And you can also go to <a href="http://192.168.99.100/redoc" target="_blank">http://192.168.99.100/redoc</a> or <a href="http://127.0.0.1/redoc" target="_blank">http://127.0.0.1/redoc</a>(or equivalent, using your Docker host).
 
 You will see the alternative automatic documentation (provided by <a href="https://github.com/Rebilly/ReDoc" target="_blank">ReDoc</a>):
 
