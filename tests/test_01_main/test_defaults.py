@@ -21,6 +21,10 @@ client = docker.from_env()
             "Hello world! From FastAPI running on Uvicorn with Gunicorn. Using Python 3.7",
         ),
         (
+            "tiangolo/uvicorn-gunicorn-fastapi:latest",
+            "Hello world! From FastAPI running on Uvicorn with Gunicorn. Using Python 3.7",
+        ),
+        (
             "tiangolo/uvicorn-gunicorn-fastapi:python3.6-alpine3.8",
             "Hello world! From FastAPI running on Uvicorn with Gunicorn in Alpine. Using Python 3.6",
         ),

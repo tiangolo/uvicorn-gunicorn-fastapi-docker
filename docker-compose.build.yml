@@ -1,7 +1,7 @@
 version: '3'
 services:
   latest:
-    build: ./python3.6
+    build: ./python3.7
     image: tiangolo/uvicorn-gunicorn-fastapi:latest
   python3.6:
     build: ./python3.6
