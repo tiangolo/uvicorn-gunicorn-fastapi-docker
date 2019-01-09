@@ -410,6 +410,11 @@ You can override it by including a file in:
 * `/gunicorn_conf.py` or replacing the one in
 
 
+## Tests
+
+All the image tags, configurations, environment variables and application options are tested.
+
+
 ## License
 
 This project is licensed under the terms of the MIT license.
