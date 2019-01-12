@@ -39,6 +39,7 @@ def test_defaults(image, response_text):
     container = client.containers.run(
         image, name=CONTAINER_NAME, ports={"80": "8000"}, detach=True
     )
+    time.sleep(1)
     config_data = get_config(container)
     assert config_data["workers_per_core"] == 2
     assert config_data["host"] == "0.0.0.0"
@@ -46,7 +47,6 @@ def test_defaults(image, response_text):
     assert config_data["loglevel"] == "info"
     assert config_data["workers"] > 2
     assert config_data["bind"] == "0.0.0.0:80"
-    time.sleep(1)
     response = requests.get("http://127.0.0.1:8000")
     data = response.json()
     assert data["message"] == response_text
