@@ -2,6 +2,8 @@ import json
 
 from docker.errors import NotFound
 
+CONTAINER_NAME = "uvicorn-gunicorn-fastapi-test"
+
 
 def get_process_names(container):
     top = container.top()
@@ -26,7 +28,7 @@ def get_config(container):
 
 def stop_previous_container(client):
     try:
-        previous = client.containers.get("uvicorn-gunicorn-fastapi-test")
+        previous = client.containers.get(CONTAINER_NAME)
         previous.stop()
         previous.remove()
     except NotFound:

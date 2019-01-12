@@ -4,7 +4,7 @@ import docker
 import pytest
 import requests
 
-from ..utils import get_config, stop_previous_container
+from ..utils import CONTAINER_NAME, get_config, stop_previous_container
 
 client = docker.from_env()
 
@@ -37,7 +37,7 @@ client = docker.from_env()
 def test_defaults(image, response_text):
     stop_previous_container(client)
     container = client.containers.run(
-        image, name="uvicorn-gunicorn-fastapi-test", ports={"80": "8000"}, detach=True
+        image, name=CONTAINER_NAME, ports={"80": "8000"}, detach=True
     )
     config_data = get_config(container)
     assert config_data["workers_per_core"] == 2
