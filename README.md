@@ -405,14 +405,48 @@ It uses the environment variables declared above to set all the configurations.
 
 You can override it by including a file in:
 
-* `/app/gunicorn_conf.py`,
-* `/app/app/gunicorn_conf.py` or replacing the one in
-* `/gunicorn_conf.py` or replacing the one in
+* `/app/gunicorn_conf.py`
+* `/app/app/gunicorn_conf.py`
+* `/gunicorn_conf.py`
+
+
+### Custom `/app/prestart.sh`
+
+If you need to run anything before starting the app, you can add a file `prestart.sh` to the directory `/app`. The image will automatically detect and run it before starting everything. 
+
+For example, if you want to add Alembic SQL migrations (with SQLALchemy), you could create a `./app/prestart.sh` file in your code directory (that will be copied by your `Dockerfile`) with:
+
+```bash
+#! /usr/bin/env bash
+
+# Let the DB start
+sleep 10;
+# Run migrations
+alembic upgrade head
+```
+
+and it would wait 10 seconds to give the database some time to start and then run that `alembic` command.
+
+If you need to run a Python script before starting the app, you could make the `/app/prestart.sh` file run your Python script, with something like:
+
+```bash
+#! /usr/bin/env bash
+
+# Run custom Python script before starting
+python /app/my_custom_prestart_script.py
+```
 
 
 ## Tests
 
 All the image tags, configurations, environment variables and application options are tested.
+
+
+## Release Notes
+
+### 0.1.0
+
+* Add support for `/app/prestart.sh`.
 
 
 ## License

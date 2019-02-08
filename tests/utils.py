@@ -26,10 +26,15 @@ def get_config(container):
     return json.loads(result.output.decode())
 
 
-def stop_previous_container(client):
+def remove_previous_container(client):
     try:
         previous = client.containers.get(CONTAINER_NAME)
         previous.stop()
         previous.remove()
     except NotFound:
         return None
+
+
+def get_logs(container):
+    logs: str = container.logs()
+    return logs.decode("utf-8")
