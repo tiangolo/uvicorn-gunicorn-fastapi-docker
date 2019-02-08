@@ -4,7 +4,7 @@ import docker
 import pytest
 import requests
 
-from ..utils import CONTAINER_NAME, get_config, stop_previous_container
+from ..utils import CONTAINER_NAME, get_config, get_logs, remove_previous_container
 
 client = docker.from_env()
 
@@ -54,7 +54,7 @@ def verify_container(container, response_text):
     ],
 )
 def test_defaults(image, response_text):
-    stop_previous_container(client)
+    remove_previous_container(client)
     container = client.containers.run(
         image, name=CONTAINER_NAME, ports={"80": "8000"}, detach=True
     )
