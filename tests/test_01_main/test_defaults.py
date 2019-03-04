@@ -11,7 +11,7 @@ client = docker.from_env()
 
 def verify_container(container, response_text):
     config_data = get_config(container)
-    assert config_data["workers_per_core"] == 2
+    assert config_data["workers_per_core"] == 1
     assert config_data["host"] == "0.0.0.0"
     assert config_data["port"] == "80"
     assert config_data["loglevel"] == "info"
