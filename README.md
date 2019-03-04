@@ -289,7 +289,7 @@ It will set the number of workers to the number of CPU cores multiplied by this 
 
 By default:
 
-* `2`
+* `1`
 
 You can set it like:
 
@@ -309,6 +309,8 @@ docker run -d -p 80:80 -e WORKERS_PER_CORE="0.5" myimage
 
 In a server with 8 CPU cores, this would make it start only 4 worker processes.
 
+**Note**: By default, if `WORKERS_PER_CORE` is `1` and the server has only 1 CPU core, instead of starting 1 single worker, it will start 2. This is to avoid bad performance and blocking applications (server application) on small machines (server machine/cloud/etc). This can be overridden using `WEB_CONCURRENCY`.
+
 
 #### `WEB_CONCURRENCY`
 
@@ -316,7 +318,7 @@ Override the automatic definition of number of workers.
 
 By default:
 
-* Set to the number of CPU cores in the current server multiplied by the environment variable `WORKERS_PER_CORE`. So, in a server with 2 cores, by default it will be set to `4`.
+* Set to the number of CPU cores in the current server multiplied by the environment variable `WORKERS_PER_CORE`. So, in a server with 2 cores, by default it will be set to `2`.
 
 You can set it like:
 
@@ -443,6 +445,15 @@ All the image tags, configurations, environment variables and application option
 
 
 ## Release Notes
+
+### 0.3.0
+
+* Set `WORKERS_PER_CORE` by default to `1`, as it shows to have the best performance on benchmarks.
+* Make the default web concurrency, when `WEB_CONCURRENCY` is not set, to a minimum of 2 workers. This is to avoid bad performance and blocking applications (server application) on small machines (server machine/cloud/etc). This can be overridden using `WEB_CONCURRENCY`. This applies for example in the case where `WORKERS_PER_CORE` is set to `1` (the default) and the server has only 1 CPU core. PR <a href="https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/6" target="_blank">#6</a> and PR <a href="https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/5" target="_blank">#5</a> in parent image.
+
+### 0.2.0
+
+* Make `/start.sh` run independently, reading and generating used default environment variables. And remove `/entrypoint.sh` as it doesn't modify anything in the system, only reads environment variables. PR <a href="https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/4" target="_blank">#4</a> in parent image.
 
 ### 0.1.0
 
