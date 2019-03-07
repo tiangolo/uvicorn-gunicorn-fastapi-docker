@@ -438,6 +438,56 @@ If you need to run a Python script before starting the app, you could make the `
 python /app/my_custom_prestart_script.py
 ```
 
+### Development live reload
+
+The default program that is run is at `/start.sh`. It does everything described above.
+
+There's also a version for development with live auto-reload at:
+
+```bash
+/start-reload.sh
+```
+
+#### Details
+
+For development, it's useful to be able to mount the contents of the application code inside of the container as a Docker "host volume", to be able to change the code and test it live, without having to build the image every time.
+
+In that case, it's also useful to run the server with live auto-reload, so that it re-starts automatically at every code change.
+
+The additional script `/start-reload.sh` runs Uvicorn alone (without Gunicorn) and in a single process.
+
+It is ideal for development.
+
+#### Usage
+
+For example, instead of running:
+
+```bash
+docker run -d -p 80:80 myimage
+```
+
+You could run:
+
+```bash
+docker run -d -p 80:80 -v $(pwd):/app myimage /start-reload.sh
+```
+
+* `-v $(pwd):/app`: means that the directory `$(pwd)` should be mounted as a volume inside of the container at `/app`.
+    * `$(pwd)`: runs `pwd` ("print working directory") and puts it as part of the string.
+* `/start-reload.sh`: adding something (like `/start-reload.sh`) at the end of the command, replaces the default "command" with this one. In this case, it replaces the default (`/start.sh`) with the development alternative `/start-reload.sh`.
+
+#### Technical Details
+
+As `/start-reload.sh` doesn't run with Gunicorn, any of the configurations you put in a `gunicorn_conf.py` file won't apply.
+
+But these environment variables will work the same as described above:
+
+* `MODULE_NAME`
+* `VARIABLE_NAME`
+* `APP_MODULE`
+* `HOST`
+* `PORT`
+* `LOG_LEVEL`
 
 ## Tests
 
@@ -445,6 +495,10 @@ All the image tags, configurations, environment variables and application option
 
 
 ## Release Notes
+
+### 0.4.0
+
+* Add support for live auto-reload with an additional custom script `/start-reload.sh`, check the [updated documentation](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker#development-live-reload). PR <a href="https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/6" target="_blank">#6</a> in parent image.
 
 ### 0.3.0
 
