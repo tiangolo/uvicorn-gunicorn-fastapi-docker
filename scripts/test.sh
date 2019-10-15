@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-docker-compose -f docker-compose.build.yml build
+use_tag="tiangolo/uvicorn-gunicorn-fastapi:$NAME"
+
+docker build -t "$use_tag" "$BUILD_PATH"
 pytest tests
