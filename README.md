@@ -7,6 +7,8 @@
 * [`python3.6-alpine3.8` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/python3.6-alpine3.8/Dockerfile)
 * [`python3.7-alpine3.8` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/python3.7-alpine3.8/Dockerfile)
 
+**Note**: Note: There are [tags for each build date](https://hub.docker.com/r/tiangolo/uvicorn-gunicorn-fastapi/tags). If you need to "pin" the Docker image version you use, you can select one of those tags. E.g. `tiangolo/uvicorn-gunicorn-fastapi:python3.7-2019-10-15`.
+
 # uvicorn-gunicorn-fastapi
 
 [**Docker**](https://www.docker.com/) image with [**Uvicorn**](https://www.uvicorn.org/) managed by [**Gunicorn**](https://gunicorn.org/) for high-performance [**FastAPI**](https://fastapi.tiangolo.com/) web applications in **[Python](https://www.python.org/) 3.7** and **3.6** with performance auto-tuning. Optionally with Alpine Linux.
@@ -472,8 +474,9 @@ All the image tags, configurations, environment variables and application option
 
 ## Release Notes
 
-### Next Release
+### Latest Changes
 
+* Refactor tests to use env vars and add image tags for each build date, like `tiangolo/uvicorn-gunicorn-fastapi:python3.7-2019-10-15`. PR [#17](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/17).
 * Upgrade Travis. PR [#9](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/9).
 
 ### 0.4.0
