@@ -2,8 +2,12 @@
 
 set -e
 
-echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+use_tag="tiangolo/uvicorn-gunicorn-fastapi:$NAME"
+use_dated_tag="${use_tag}-$(date -I)"
 
-docker-compose -f docker-compose.build.yml build
+docker build -t "$use_tag" "$BUILD_PATH"
 
-docker-compose -f docker-compose.build.yml push
+docker tag "$use_tag" "$use_dated_tag"
+
+docker push "$use_tag"
+docker push "$use_dated_tag"

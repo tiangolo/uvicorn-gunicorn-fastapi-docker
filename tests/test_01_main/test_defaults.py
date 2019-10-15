@@ -1,3 +1,4 @@
+import os
 import time
 
 import docker
@@ -28,42 +29,21 @@ def verify_container(container, response_text):
     assert data["message"] == response_text
 
 
-@pytest.mark.parametrize(
-    "image,response_text",
-    [
-        (
-            "tiangolo/uvicorn-gunicorn-fastapi:python3.6",
-            "Hello world! From FastAPI running on Uvicorn with Gunicorn. Using Python 3.6",
-        ),
-        (
-            "tiangolo/uvicorn-gunicorn-fastapi:python3.7",
-            "Hello world! From FastAPI running on Uvicorn with Gunicorn. Using Python 3.7",
-        ),
-        (
-            "tiangolo/uvicorn-gunicorn-fastapi:latest",
-            "Hello world! From FastAPI running on Uvicorn with Gunicorn. Using Python 3.7",
-        ),
-        (
-            "tiangolo/uvicorn-gunicorn-fastapi:python3.6-alpine3.8",
-            "Hello world! From FastAPI running on Uvicorn with Gunicorn in Alpine. Using Python 3.6",
-        ),
-        (
-            "tiangolo/uvicorn-gunicorn-fastapi:python3.7-alpine3.8",
-            "Hello world! From FastAPI running on Uvicorn with Gunicorn in Alpine. Using Python 3.7",
-        ),
-    ],
-)
-def test_defaults(image, response_text):
+def test_defaults():
+    name = os.getenv("NAME")
+    image = f"tiangolo/uvicorn-gunicorn-fastapi:{name}"
+    response_text = os.getenv("TEST_STR1")
+    sleep_time = int(os.getenv("SLEEP_TIME", 1))
     remove_previous_container(client)
     container = client.containers.run(
         image, name=CONTAINER_NAME, ports={"80": "8000"}, detach=True
     )
-    time.sleep(1)
+    time.sleep(sleep_time)
     verify_container(container, response_text)
     container.stop()
     # Test that everything works after restarting too
     container.start()
-    time.sleep(1)
+    time.sleep(sleep_time)
     verify_container(container, response_text)
     container.stop()
     container.remove()
