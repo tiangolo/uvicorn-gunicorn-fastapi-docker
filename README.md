@@ -476,6 +476,8 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+### 0.5.0
+
 * Refactor tests to use env vars and add image tags for each build date, like `tiangolo/uvicorn-gunicorn-fastapi:python3.7-2019-10-15`. PR [#17](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/17).
 * Upgrade Travis. PR [#9](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/9).
 
