@@ -1,9 +1,9 @@
-dist: xenial
+dist: bionic
 
 language: python
 
 python:
-  - "3.7"
+  - "3.8"
 
 install:
   - pip install docker pytest
@@ -13,8 +13,10 @@ services:
 
 env:
   - NAME='latest' BUILD_PATH='python3.7' TEST_STR1='Hello world! From FastAPI running on Uvicorn with Gunicorn. Using Python 3.7'
+  - NAME='python3.8' BUILD_PATH='python3.8' TEST_STR1='Hello world! From FastAPI running on Uvicorn with Gunicorn. Using Python 3.8'
   - NAME='python3.7' BUILD_PATH='python3.7' TEST_STR1='Hello world! From FastAPI running on Uvicorn with Gunicorn. Using Python 3.7'
   - NAME='python3.6' BUILD_PATH='python3.6' TEST_STR1='Hello world! From FastAPI running on Uvicorn with Gunicorn. Using Python 3.6'
+  - NAME='python3.8-alpine3.10' BUILD_PATH='python3.8-alpine3.10' TEST_STR1='Hello world! From FastAPI running on Uvicorn with Gunicorn in Alpine. Using Python 3.8'
   - NAME='python3.7-alpine3.8' BUILD_PATH='python3.7-alpine3.8' TEST_STR1='Hello world! From FastAPI running on Uvicorn with Gunicorn in Alpine. Using Python 3.7'
   - NAME='python3.6-alpine3.8' BUILD_PATH='python3.6-alpine3.8' TEST_STR1='Hello world! From FastAPI running on Uvicorn with Gunicorn in Alpine. Using Python 3.6'
 
