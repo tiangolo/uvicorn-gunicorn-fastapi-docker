@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/tiangolo/uvicorn-gunicorn-fastapi-docker.svg?branch=master)](https://travis-ci.org/tiangolo/uvicorn-gunicorn-fastapi-docker)
+[![Build Status](https://travis-ci.com/tiangolo/uvicorn-gunicorn-fastapi-docker.svg?branch=master)](https://travis-ci.com/tiangolo/uvicorn-gunicorn-fastapi-docker)
 
 ## Supported tags and respective `Dockerfile` links
 
@@ -379,6 +379,18 @@ You can set it like:
 docker run -d -p 80:8080 -e LOG_LEVEL="warning" myimage
 ```
 
+#### `PRE_START_PATH`
+
+The path where to find the pre-start script.
+
+By default, set to `/app/prestart.sh`.
+
+You can set it like:
+
+```bash
+docker run -d -p 80:8080 -e PRE_START_PATH="/custom/script.sh" myimage
+```
+
 ### Custom Gunicorn configuration file
 
 The image includes a default Gunicorn Python config file at `/gunicorn_conf.py`.
@@ -393,7 +405,7 @@ You can override it by including a file in:
 
 ### Custom `/app/prestart.sh`
 
-If you need to run anything before starting the app, you can add a file `prestart.sh` to the directory `/app`. The image will automatically detect and run it before starting everything. 
+If you need to run anything before starting the app, you can add a file `prestart.sh` to the directory `/app`. The image will automatically detect and run it before starting everything.
 
 For example, if you want to add Alembic SQL migrations (with SQLALchemy), you could create a `./app/prestart.sh` file in your code directory (that will be copied by your `Dockerfile`) with:
 
@@ -416,6 +428,8 @@ If you need to run a Python script before starting the app, you could make the `
 # Run custom Python script before starting
 python /app/my_custom_prestart_script.py
 ```
+
+You can customize the location of the prestart script with the environment variable `PRE_START_PATH` described above.
 
 ### Development live reload
 
