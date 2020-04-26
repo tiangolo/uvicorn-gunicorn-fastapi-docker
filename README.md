@@ -56,7 +56,7 @@ The key features are:
 
 <small>* estimation based on tests on an internal development team, building production applications.</small>
 
-### `tiangolo/uvicorn-gunicorn-fastapi`
+### `tiangolo/uvicorn-gunicorn`
 
 This image will set a sensible configuration based on the server it is running on (the amount of CPU cores available) without making sacrifices.
 
@@ -64,7 +64,7 @@ It has sensible defaults, but you can configure it with environment variables or
 
 There is also an Alpine version. If you want it, use one of the Alpine tags from above.
 
-### `tiangolo/uvicorn-gunicorn`
+### `tiangolo/uvicorn-gunicorn-fastapi`
 
 This image (`tiangolo/uvicorn-gunicorn-fastapi`) is based on [**tiangolo/uvicorn-gunicorn**](https://github.com/tiangolo/uvicorn-gunicorn-docker).
 
