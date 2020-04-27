@@ -619,6 +619,20 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+* Update and refactor bringing all the new features from the base image. Includes:
+    * Centralize, simplify, and deduplicate code and setup
+    * Move CI to GitHub actions
+    * Add Python 3.8 (and Alpine)
+    * Add new configs and docs:
+        * `WORKER_CLASS`
+        * `TIMEOUT`
+        * `KEEP_ALIVE`
+        * `GRACEFUL_TIMEOUT`
+        * `ACCESS_LOG`
+        * `ERROR_LOG`
+        * `GUNICORN_CMD_ARGS`
+        * `MAX_WORKERS`
+    * PR [#39](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/39).
 * Disable pip cache during installation. PR [#38](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/38).
 * Migrate local development from Pipenv to Poetry. PR [#34](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/34).
 * Add docs for custom `PRE_START_PATH` env var. PR [#33](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/33).
