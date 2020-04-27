@@ -3,31 +3,13 @@ import subprocess
 import sys
 
 environments = [
-    {
-        "NAME": "latest",
-        "BUILD_PATH": "python3.7",
-        "TEST_STR1": "Hello world! From FastAPI running on Uvicorn with Gunicorn. Using Python 3.7",
-    },
-    {
-        "NAME": "python3.7",
-        "BUILD_PATH": "python3.7",
-        "TEST_STR1": "Hello world! From FastAPI running on Uvicorn with Gunicorn. Using Python 3.7",
-    },
-    {
-        "NAME": "python3.6",
-        "BUILD_PATH": "python3.6",
-        "TEST_STR1": "Hello world! From FastAPI running on Uvicorn with Gunicorn. Using Python 3.6",
-    },
-    {
-        "NAME": "python3.7-alpine3.8",
-        "BUILD_PATH": "python3.7-alpine3.8",
-        "TEST_STR1": "Hello world! From FastAPI running on Uvicorn with Gunicorn in Alpine. Using Python 3.7",
-    },
-    {
-        "NAME": "python3.6-alpine3.8",
-        "BUILD_PATH": "python3.6-alpine3.8",
-        "TEST_STR1": "Hello world! From FastAPI running on Uvicorn with Gunicorn in Alpine. Using Python 3.6",
-    },
+    {"NAME": "latest", "PYTHON_VERSION": "3.8"},
+    {"NAME": "python3.8", "PYTHON_VERSION": "3.8"},
+    {"NAME": "python3.7", "PYTHON_VERSION": "3.7"},
+    {"NAME": "python3.6", "PYTHON_VERSION": "3.6"},
+    {"NAME": "python3.8-alpine3.10", "PYTHON_VERSION": "3.8"},
+    {"NAME": "python3.7-alpine3.8", "PYTHON_VERSION": "3.7"},
+    {"NAME": "python3.6-alpine3.8", "PYTHON_VERSION": "3.6"},
 ]
 
 start_with = os.environ.get("START_WITH")
