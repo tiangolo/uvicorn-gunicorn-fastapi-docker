@@ -667,6 +667,8 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+### 0.6.0
+
 * Add docs about installing and pinning dependencies. PR [#41](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/41).
 * Add `slim` version. PR [#40](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/40).
 * Update and refactor bringing all the new features from the base image. Includes:
