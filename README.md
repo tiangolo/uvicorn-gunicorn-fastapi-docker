@@ -620,6 +620,7 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+* Add `slim` version. PR [#40](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/40).
 * Update and refactor bringing all the new features from the base image. Includes:
     * Centralize, simplify, and deduplicate code and setup
     * Move CI to GitHub actions
