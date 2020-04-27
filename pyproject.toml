@@ -11,6 +11,10 @@ docker = "^4.2.0"
 pytest = "^5.4.1"
 
 [tool.poetry.dev-dependencies]
+black = "^19.10b0"
+isort = "^4.3.21"
+autoflake = "^1.3.1"
+mypy = "^0.770"
 
 [build-system]
 requires = ["poetry>=0.12"]
