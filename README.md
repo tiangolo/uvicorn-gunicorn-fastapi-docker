@@ -1,17 +1,20 @@
-[![Build Status](https://travis-ci.com/tiangolo/uvicorn-gunicorn-fastapi-docker.svg?branch=master)](https://travis-ci.com/tiangolo/uvicorn-gunicorn-fastapi-docker)
+[![Test](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/workflows/Test/badge.svg)](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/actions?query=workflow%3ATest) [![Deploy](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/workflows/Deploy/badge.svg)](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/actions?query=workflow%3ADeploy)
 
 ## Supported tags and respective `Dockerfile` links
 
-* [`python3.7`, `latest` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/python3.7/Dockerfile)
-* [`python3.6` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/python3.6/Dockerfile)
-* [`python3.6-alpine3.8` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/python3.6-alpine3.8/Dockerfile)
-* [`python3.7-alpine3.8` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/python3.7-alpine3.8/Dockerfile)
+* [`python3.8`, `latest` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.8.dockerfile)
+* [`python3.7`, _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.7.dockerfile)
+* [`python3.6` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.6.dockerfile)
+* [`python3.8-alpine3.10` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.8-alpine3.10.dockerfile)
+* [`python3.7-alpine3.8` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.7-alpine3.8.dockerfile)
+* [`python3.6-alpine3.8` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.6-alpine3.8.dockerfile)
+
 
 **Note**: Note: There are [tags for each build date](https://hub.docker.com/r/tiangolo/uvicorn-gunicorn-fastapi/tags). If you need to "pin" the Docker image version you use, you can select one of those tags. E.g. `tiangolo/uvicorn-gunicorn-fastapi:python3.7-2019-10-15`.
 
 # uvicorn-gunicorn-fastapi
 
-[**Docker**](https://www.docker.com/) image with [**Uvicorn**](https://www.uvicorn.org/) managed by [**Gunicorn**](https://gunicorn.org/) for high-performance [**FastAPI**](https://fastapi.tiangolo.com/) web applications in **[Python](https://www.python.org/) 3.7** and **3.6** with performance auto-tuning. Optionally with Alpine Linux.
+[**Docker**](https://www.docker.com/) image with [**Uvicorn**](https://www.uvicorn.org/) managed by [**Gunicorn**](https://gunicorn.org/) for high-performance [**FastAPI**](https://fastapi.tiangolo.com/) web applications in **[Python](https://www.python.org/) 3.6 and above** with performance auto-tuning. Optionally with Alpine Linux.
 
 **GitHub repo**: [https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker)
 
@@ -265,6 +268,8 @@ You can set it like:
 docker run -d -p 80:80 -e GUNICORN_CONF="/app/custom_gunicorn_conf.py" myimage
 ```
 
+You can use the [config file from the base image](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/gunicorn_conf.py) as a starting point for yours.
+
 #### `WORKERS_PER_CORE`
 
 This image will check how many CPU cores are available in the current server running your container.
@@ -294,6 +299,24 @@ docker run -d -p 80:80 -e WORKERS_PER_CORE="0.5" myimage
 In a server with 8 CPU cores, this would make it start only 4 worker processes.
 
 **Note**: By default, if `WORKERS_PER_CORE` is `1` and the server has only 1 CPU core, instead of starting 1 single worker, it will start 2. This is to avoid bad performance and blocking applications (server application) on small machines (server machine/cloud/etc). This can be overridden using `WEB_CONCURRENCY`.
+
+#### `MAX_WORKERS`
+
+Set the maximum number of workers to use.
+
+You can use it to let the image compute the number of workers automatically but making sure it's limited to a maximum.
+
+This can be useful, for example, if each worker uses a database connection and your database has a maximum limit of open connections.
+
+By default it's not set, meaning that it's unlimited.
+
+You can set it like:
+
+```bash
+docker run -d -p 80:80 -e MAX_WORKERS="24" myimage
+```
+
+This would make the image start at most 24 workers, independent of how many CPU cores are available in the server.
 
 #### `WEB_CONCURRENCY`
 
@@ -378,6 +401,112 @@ You can set it like:
 ```bash
 docker run -d -p 80:8080 -e LOG_LEVEL="warning" myimage
 ```
+
+#### `WORKER_CLASS`
+
+The class to be used by Gunicorn for the workers.
+
+By default, set to `uvicorn.workers.UvicornWorker`.
+
+The fact that it uses Uvicorn is what allows using ASGI frameworks like FastAPI, and that is also what provides the maximum performance.
+
+You probably shouldn't change it.
+
+But if for some reason you need to use the alternative Uvicorn worker: `uvicorn.workers.UvicornH11Worker` you can set it with this environment variable.
+
+You can set it like:
+
+```bash
+docker run -d -p 80:8080 -e WORKER_CLASS="uvicorn.workers.UvicornH11Worker" myimage
+```
+
+#### `TIMEOUT`
+
+Workers silent for more than this many seconds are killed and restarted.
+
+Read more about it in the [Gunicorn docs: timeout](https://docs.gunicorn.org/en/stable/settings.html#timeout).
+
+By default, set to `120`.
+
+Notice that Uvicorn and ASGI frameworks like FastAPI are async, not sync. So it's probably safe to have higher timeouts than for sync workers.
+
+You can set it like:
+
+```bash
+docker run -d -p 80:8080 -e TIMEOUT="20" myimage
+```
+
+#### `KEEP_ALIVE`
+
+The number of seconds to wait for requests on a Keep-Alive connection.
+
+Read more about it in the [Gunicorn docs: keepalive](https://docs.gunicorn.org/en/stable/settings.html#keepalive).
+
+By default, set to `2`.
+
+You can set it like:
+
+```bash
+docker run -d -p 80:8080 -e KEEP_ALIVE="20" myimage
+```
+
+#### `GRACEFUL_TIMEOUT`
+
+Timeout for graceful workers restart.
+
+Read more about it in the [Gunicorn docs: graceful-timeout](https://docs.gunicorn.org/en/stable/settings.html#graceful-timeout).
+
+By default, set to `120`.
+
+You can set it like:
+
+```bash
+docker run -d -p 80:8080 -e GRACEFUL_TIMEOUT="20" myimage
+```
+
+#### `ACCESS_LOG`
+
+The access log file to write to.
+
+By default `"-"`, which means stdout (print in the Docker logs).
+
+If you want to disable `ACCESS_LOG`, set it to an empty value.
+
+For example, you could disable it with:
+
+```bash
+docker run -d -p 80:8080 -e ACCESS_LOG= myimage
+```
+
+#### `ERROR_LOG`
+
+The error log file to write to.
+
+By default `"-"`, which means stderr (print in the Docker logs).
+
+If you want to disable `ERROR_LOG`, set it to an empty value.
+
+For example, you could disable it with:
+
+```bash
+docker run -d -p 80:8080 -e ERROR_LOG= myimage
+```
+
+#### `GUNICORN_CMD_ARGS`
+
+Any additional command line settings for Gunicorn can be passed in the `GUNICORN_CMD_ARGS` environment variable.
+
+Read more about it in the [Gunicorn docs: Settings](https://docs.gunicorn.org/en/stable/settings.html#settings).
+
+These settings will have precedence over the other environment variables and any Gunicorn config file.
+
+For example, if you have a custom TLS/SSL certificate that you want to use, you could copy them to the Docker image or mount them in the container, and set [`--keyfile` and `--certfile`](http://docs.gunicorn.org/en/latest/settings.html#ssl) to the location of the files, for example:
+
+```bash
+docker run -d -p 80:8080 -e GUNICORN_CMD_ARGS="--keyfile=/secrets/key.pem --certfile=/secrets/cert.pem" -e PORT=443 myimage
+```
+
+**Note**: instead of handling TLS/SSL yourself and configuring it in the container, it's recommended to use a "TLS Termination Proxy" like [Traefik](https://docs.traefik.io/). You can read more about it in the [FastAPI documentation about HTTPS](https://fastapi.tiangolo.com/deployment/#https).
 
 #### `PRE_START_PATH`
 
@@ -469,7 +598,7 @@ docker run -d -p 80:80 -v $(pwd):/app myimage /start-reload.sh
     * `$(pwd)`: runs `pwd` ("print working directory") and puts it as part of the string.
 * `/start-reload.sh`: adding something (like `/start-reload.sh`) at the end of the command, replaces the default "command" with this one. In this case, it replaces the default (`/start.sh`) with the development alternative `/start-reload.sh`.
 
-#### Technical Details
+#### Development live reload - Technical Details
 
 As `/start-reload.sh` doesn't run with Gunicorn, any of the configurations you put in a `gunicorn_conf.py` file won't apply.
 
