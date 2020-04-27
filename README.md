@@ -190,6 +190,53 @@ You will see the alternative automatic documentation (provided by <a href="https
 
 ![ReDoc](https://fastapi.tiangolo.com/img/index/index-02-redoc-simple.png)
 
+## Dependencies and packages
+
+You will probably also want to add any dependencies for your app and pin them to a specific version, probably including Uvicorn, Gunicorn, and FastAPI.
+
+This way you can make sure your app always works as expected.
+
+You could install packages with `pip` commands in your `Dockerfile`, using a `requirements.txt`, or even using [Poetry](https://python-poetry.org/).
+
+And then you can upgrade those dependencies in a controlled way, running your tests, making sure that everything works, but without breaking your production application if some new version is not compatible.
+
+### Using Poetry
+
+Here's a small example of one of the ways you could install your dependencies making sure you have a pinned version for each package.
+
+Let's say you have a project managed with [Poetry](https://python-poetry.org/), so, you have your package dependencies in a file `pyproject.toml`. And possibly a file `poetry.lock`.
+
+Then you could have a `Dockerfile` like:
+
+```Dockerfile
+FROM tiangolo/uvicorn-gunicorn-fastapi:python3.7
+
+# Install Poetry
+RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | POETRY_HOME=/opt/poetry python && \
+    cd /usr/local/bin && \
+    ln -s /opt/poetry/bin/poetry && \
+    poetry config virtualenvs.create false
+
+# Copy using poetry.lock* in case it doesn't exist yet
+COPY ./app/pyproject.toml ./app/poetry.lock* /app/
+
+RUN poetry install --no-root --no-dev
+
+COPY ./app /app
+```
+
+That will:
+
+* Install poetry and configure it for running inside of the Docker container.
+* Copy your application requirements.
+    * Because it uses `./app/poetry.lock*` (ending with a `*`), it won't crash if that file is not available yet.
+* Install the dependencies.
+* Then copy your app code.
+
+It's important to copy the app code *after* installing the dependencies, that way you can take advantage of Docker's cache. That way it won't have to install everything from scratch every time you update your application files, only when you add new dependencies.
+
+This also applies for any other way you use to install your dependencies. If you use a `requirements.txt`, copy it alone and install all the dependencies on the top of the `Dockerfile`, and add your app code after it.
+
 ## Advanced usage
 
 ### Environment variables
