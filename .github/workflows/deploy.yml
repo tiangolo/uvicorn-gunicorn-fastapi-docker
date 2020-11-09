@@ -26,6 +26,14 @@ jobs:
             python_version: "3.7"
           - name: python3.6-alpine3.8
             python_version: "3.6"
+          - name: python3.9-alpine
+            python_version: "3.9"
+          - name: python3.9-alpine3.12
+            python_version: "3.9"
+          - name: python3.9-slim
+            python_version: "3.9"
+          - name: python3.9
+            python_version: "3.9"
       fail-fast: true
     runs-on: ubuntu-18.04
     steps:
