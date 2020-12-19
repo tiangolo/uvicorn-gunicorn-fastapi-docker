@@ -15,10 +15,10 @@ jobs:
   issue-manager:
     runs-on: ubuntu-latest
     steps:
-    - uses: tiangolo/issue-manager@0.2.0
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        config: >
+      - uses: tiangolo/issue-manager@0.2.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          config: >
             {
               "answered": {
                 "message": "Assuming the original issue was solved, it will be automatically closed now. But feel free to add more comments or create new issues."
