@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+  workflow_dispatch:
 
 jobs:
   build:
@@ -35,7 +36,7 @@ jobs:
         with:
           python-version: "3.7"
       - name: Install Dependencies
-        run: python3.7 -m pip install docker pytest
+        run: python3.7 -m pip install "docker>=4.4.4,<5.0.0" "pytest>=6.2.4,<7.0.0"
       - name: Deploy Image
         run: bash scripts/build-push.sh
         env:
