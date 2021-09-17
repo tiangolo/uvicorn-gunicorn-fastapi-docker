@@ -670,6 +670,7 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+* ✏ Fix typo, repeated word on README. PR [#96](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/96) by [@shelbylsmith](https://github.com/shelbylsmith).
 * 📌 Add external dependencies and Dependabot to get automatic upgrade PRs. PR [#109](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/109) by [@tiangolo](https://github.com/tiangolo).
 * ✨ Add Python 3.9 and Python 3.9 Alpine. PR [#67](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/67) by [@graue70](https://github.com/graue70).
 * 👷 Update Latest Changes. PR [#108](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/108) by [@tiangolo](https://github.com/tiangolo).
