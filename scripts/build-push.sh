@@ -13,7 +13,7 @@ use_dated_tag="${use_tag}-$(date -I)"
 
 bash scripts/docker-login.sh
 
-docker buildx create --use
+docker buildx use multiarch ||  docker buildx create --name multiarch --use
 
 docker buildx build \
   --platform "linux/amd64,linux/arm64,linux/arm/v7" \
