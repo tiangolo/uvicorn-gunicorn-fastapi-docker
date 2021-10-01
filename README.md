@@ -30,7 +30,61 @@
 
 The achievable performance is on par with (and in many cases superior to) **Go** and **Node.js** frameworks.
 
-This image has an "auto-tuning" mechanism included, so that you can just add your code and get that same **high performance** automatically. And without making sacrifices.
+This image has an **auto-tuning** mechanism included to start a number of worker processes based on the available CPU cores. That way you can just add your code and get **high performance** automatically, which is useful in **simple deployments**.
+
+## 🚨 WARNING: You Probably Don't Need this Docker Image
+
+You are probably using **Kubernetes** or similar tools. In that case, you probably **don't need this image** (or any other **similar base image**). You are probably better off **building a Docker image from scratch** as explained in the docs for [FastAPI in Containers - Docker: Build a Docker Image for FastAPI](https://fastapi.tiangolo.com/deployment/docker/#replication-number-of-processes).
+
+---
+
+If you have a cluster of machines with **Kubernetes**, Docker Swarm Mode, Nomad, or other similar complex system to manage distributed containers on multiple machines, then you will probably want to **handle replication** at the **cluster level** instead of using a **process manager** (like Gunicorn with Uvicorn workers) in each container, which is what this Docker image does.
+
+In those cases (e.g. using Kubernetes) you would probably want to build a **Docker image from scratch**, installing your dependencies, and running **a single Uvicorn process** instead of this image.
+
+For example, your `Dockerfile` could look like:
+
+```Dockerfile
+FROM python:3.9
+
+WORKDIR /code
+
+COPY ./requirements.txt /code/requirements.txt
+
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+
+COPY ./app /code/app
+
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
+```
+
+You can read more about this in the [FastAPI documentation about: FastAPI in Containers - Docker](https://fastapi.tiangolo.com/deployment/docker/#replication-number-of-processes).
+
+## When to Use this Docker Image
+
+### A Simple App
+
+You could want a process manager like Gunicorn running Uvicorn workers in the container if your application is **simple enough** that you don't need (at least not yet) to fine-tune the number of processes too much, and you can just use an automated default, and you are running it on a **single server**, not a cluster.
+
+### Docker Compose
+
+You could be deploying to a **single server** (not a cluster) with **Docker Compose**, so you wouldn't have an easy way to manage replication of containers (with Docker Compose) while preserving the shared network and **load balancing**.
+
+Then you could want to have **a single container** with a Gunicorn **process manager** starting **several Uvicorn worker processes** inside, as this Docker image does.
+
+### Prometheus and Other Reasons
+
+You could also have **other reasons** that would make it easier to have a **single container** with **multiple processes** instead of having **multiple containers** with **a single process** in each of them.
+
+For example (depending on your setup) you could have some tool like a Prometheus exporter in the same container that should have access to **each of the requests** that come.
+
+In this case, if you had **multiple containers**, by default, when Prometheus came to **read the metrics**, it would get the ones for **a single container each time** (for the container that handled that particular request), instead of getting the **accumulated metrics** for all the replicated containers.
+
+Then, in that case, it could be simpler to have **one container** with **multiple processes**, and a local tool (e.g. a Prometheus exporter) on the same container collecting Prometheus metrics for all the internal processes and exposing those metrics on that single container.
+
+---
+
+Read more about it all in the [FastAPI documentation about: FastAPI in Containers - Docker](https://fastapi.tiangolo.com/deployment/docker/).
 
 ## Technical Details
 
@@ -42,9 +96,9 @@ It runs asynchronous Python web code in a single process.
 
 ### Gunicorn
 
-You can use **Gunicorn** to manage Uvicorn and run multiple of these concurrent processes.
+You can use **Gunicorn** to start and manage multiple Uvicorn worker processes.
 
-That way, you get the best of concurrency and parallelism.
+That way, you get the best of concurrency and parallelism in simple deployments.
 
 ### FastAPI
 
@@ -91,10 +145,18 @@ If you are creating a new [**Starlette**](https://www.starlette.io/) web applica
 
 ## How to use
 
-* You don't need to clone the GitHub repo. You can use this image as a base image for other images, using this in your `Dockerfile`:
+You don't need to clone the GitHub repo.
+
+You can use this image as a base image for other images.
+
+Assuming you have a file `requirements.txt`, you could have a `Dockerfile` like this:
 
 ```Dockerfile
 FROM tiangolo/uvicorn-gunicorn-fastapi:python3.9
+
+COPY ./requirements.txt /app/requirements.txt
+
+RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
 
 COPY ./app /app
 ```
@@ -120,6 +182,10 @@ docker build -t myimage ./
 
 ```Dockerfile
 FROM tiangolo/uvicorn-gunicorn-fastapi:python3.9
+
+COPY ./requirements.txt /app/requirements.txt
+
+RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
 
 COPY ./app /app
 ```
@@ -209,21 +275,24 @@ Here's a small example of one of the ways you could install your dependencies ma
 
 Let's say you have a project managed with [Poetry](https://python-poetry.org/), so, you have your package dependencies in a file `pyproject.toml`. And possibly a file `poetry.lock`.
 
-Then you could have a `Dockerfile` like:
+Then you could have a `Dockerfile` using Docker multi-stage building with:
 
 ```Dockerfile
+FROM python:3.9 as requirements-stage
+
+WORKDIR /tmp
+
+RUN pip install poetry
+
+COPY ./pyproject.toml ./poetry.lock* /tmp/
+
+RUN poetry export -f requirements.txt --output requirements.txt --without-hashes
+
 FROM tiangolo/uvicorn-gunicorn-fastapi:python3.9
 
-# Install Poetry
-RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | POETRY_HOME=/opt/poetry python && \
-    cd /usr/local/bin && \
-    ln -s /opt/poetry/bin/poetry && \
-    poetry config virtualenvs.create false
+COPY --from=requirements-stage /tmp/requirements.txt /app/requirements.txt
 
-# Copy using poetry.lock* in case it doesn't exist yet
-COPY ./app/pyproject.toml ./app/poetry.lock* /app/
-
-RUN poetry install --no-root --no-dev
+RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
 
 COPY ./app /app
 ```
@@ -232,7 +301,7 @@ That will:
 
 * Install poetry and configure it for running inside of the Docker container.
 * Copy your application requirements.
-    * Because it uses `./app/poetry.lock*` (ending with a `*`), it won't crash if that file is not available yet.
+    * Because it uses `./poetry.lock*` (ending with a `*`), it won't crash if that file is not available yet.
 * Install the dependencies.
 * Then copy your app code.
 
