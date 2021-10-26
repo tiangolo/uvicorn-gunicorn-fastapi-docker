@@ -1,0 +1,1 @@
+FastAPI with molog Warehouse Management System
