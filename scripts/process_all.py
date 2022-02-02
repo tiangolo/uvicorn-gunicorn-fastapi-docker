@@ -3,13 +3,16 @@ import subprocess
 import sys
 
 environments = [
-    {"NAME": "latest", "PYTHON_VERSION": "3.9"},
+    {"NAME": "latest", "PYTHON_VERSION": "3.10"},
+    {"NAME": "python3.10", "PYTHON_VERSION": "3.10"},
     {"NAME": "python3.9", "PYTHON_VERSION": "3.9"},
     {"NAME": "python3.8", "PYTHON_VERSION": "3.8"},
     {"NAME": "python3.7", "PYTHON_VERSION": "3.7"},
     {"NAME": "python3.6", "PYTHON_VERSION": "3.6"},
+    {"NAME": "python3.10-slim", "PYTHON_VERSION": "3.10"}
     {"NAME": "python3.9-slim", "PYTHON_VERSION": "3.9"},
     {"NAME": "python3.8-slim", "PYTHON_VERSION": "3.8"},
+    {"NAME": "python3.10-alpine3.15", "PYTHON_VERSION": "3.10"},
     {"NAME": "python3.9-alpine3.14", "PYTHON_VERSION": "3.9"},
     {"NAME": "python3.8-alpine3.10", "PYTHON_VERSION": "3.8"},
     {"NAME": "python3.7-alpine3.8", "PYTHON_VERSION": "3.7"},

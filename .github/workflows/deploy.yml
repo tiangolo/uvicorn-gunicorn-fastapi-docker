@@ -12,7 +12,9 @@ jobs:
       matrix:
         image:
           - name: latest
-            python_version: "3.9"
+            python_version: "3.10"
+          - name: python3.10
+            python_version: "3.10"
           - name: python3.9
             python_version: "3.9"
           - name: python3.8
@@ -21,10 +23,14 @@ jobs:
             python_version: "3.7"
           - name: python3.6
             python_version: "3.6"
+          - name: python3.10-slim
+            python_version: "3.10"
           - name: python3.9-slim
             python_version: "3.9"
           - name: python3.8-slim
             python_version: "3.8"
+          - name: python3.10-alpine3.15
+            python_version: "3.10"
           - name: python3.9-alpine3.14
             python_version: "3.9"
           - name: python3.8-alpine3.10
