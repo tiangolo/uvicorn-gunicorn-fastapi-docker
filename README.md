@@ -2,10 +2,12 @@
 
 ## Supported tags and respective `Dockerfile` links
 
-* [`python3.9`, `latest` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.9.dockerfile)
+* [`python3.10`, `latest` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.10.dockerfile)
+* [`python3.9`, _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.9.dockerfile)
 * [`python3.8`, _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.8.dockerfile)
 * [`python3.7`, _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.7.dockerfile)
 * [`python3.6` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.6.dockerfile)
+* [`python3.10-slim` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.10-slim.dockerfile)
 * [`python3.9-slim` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.9-slim.dockerfile)
 * [`python3.8-slim` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.8-slim.dockerfile)
 
@@ -51,7 +53,7 @@ In those cases (e.g. using Kubernetes) you would probably want to build a **Dock
 For example, your `Dockerfile` could look like:
 
 ```Dockerfile
-FROM python:3.9
+FROM python:3.10
 
 WORKDIR /code
 
@@ -158,7 +160,7 @@ You can use this image as a base image for other images.
 Assuming you have a file `requirements.txt`, you could have a `Dockerfile` like this:
 
 ```Dockerfile
-FROM tiangolo/uvicorn-gunicorn-fastapi:python3.9
+FROM tiangolo/uvicorn-gunicorn-fastapi:python3.10
 
 COPY ./requirements.txt /app/requirements.txt
 
@@ -187,7 +189,7 @@ docker build -t myimage ./
 * Create a `Dockerfile` with:
 
 ```Dockerfile
-FROM tiangolo/uvicorn-gunicorn-fastapi:python3.9
+FROM tiangolo/uvicorn-gunicorn-fastapi:python3.10
 
 COPY ./requirements.txt /app/requirements.txt
 
@@ -284,7 +286,7 @@ Let's say you have a project managed with [Poetry](https://python-poetry.org/), 
 Then you could have a `Dockerfile` using Docker multi-stage building with:
 
 ```Dockerfile
-FROM python:3.9 as requirements-stage
+FROM python:3.10 as requirements-stage
 
 WORKDIR /tmp
 
@@ -294,7 +296,7 @@ COPY ./pyproject.toml ./poetry.lock* /tmp/
 
 RUN poetry export -f requirements.txt --output requirements.txt --without-hashes
 
-FROM tiangolo/uvicorn-gunicorn-fastapi:python3.9
+FROM tiangolo/uvicorn-gunicorn-fastapi:python3.10
 
 COPY --from=requirements-stage /tmp/requirements.txt /app/requirements.txt
 
