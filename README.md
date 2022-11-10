@@ -763,6 +763,7 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+* ⬆️ Bump actions/setup-python from 1 to 4.1.0. PR [#182](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/182) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update pytest requirement from ^5.4.1 to ^7.0.1. PR [#153](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/153) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 📝 Add note to discourage Alpine with Python. PR [#122](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/122) by [@tiangolo](https://github.com/tiangolo).
 * 📝 Add warning for Kubernetes, when to use this image. PR [#121](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/121) by [@tiangolo](https://github.com/tiangolo).
