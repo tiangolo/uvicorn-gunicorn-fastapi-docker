@@ -763,6 +763,7 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+* ⬆️ Update mypy requirement from ^0.770 to ^0.971. PR [#184](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/184) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update isort requirement from ^4.3.21 to ^5.8.0. PR [#116](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/116) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Bump tiangolo/issue-manager from 0.2.0 to 0.4.0. PR [#110](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/110) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Bump actions/setup-python from 1 to 4.1.0. PR [#182](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/182) by [@dependabot[bot]](https://github.com/apps/dependabot).
