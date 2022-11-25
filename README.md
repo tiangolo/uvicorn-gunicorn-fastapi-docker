@@ -777,18 +777,47 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+
+### 0.7.0
+
+Highlights of this release:
+
+* Support for Python 3.10 and 3.11.
+* Deprecation of Python 3.6.
+    * The last Python 3.6 image tag was pushed and is available in Docker Hub, but it won't be updated or maintained anymore.
+    * The last image with a date tag is `python3.6-2022-11-25`.
+* Upgraded versions of all the dependencies.
+
+#### Features
+
+* ✨ Add support for Python 3.10 and 3.11. PR [#220](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/220) by [@tiangolo](https://github.com/tiangolo).
+* ✨ Add Python 3.9 and Python 3.9 Alpine. PR [#67](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/67) by [@graue70](https://github.com/graue70).
+
+#### Breaking Changes
+
+* 🔥 Deprecate and remove Python 3.6. PR [#211](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/211) by [@tiangolo](https://github.com/tiangolo).
+
+#### Upgrades
+
+* ⬆️ Upgrade FastAPI and Uvicorn versions. PR [#212](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/212) by [@tiangolo](https://github.com/tiangolo).
+* ⬆️ Upgrade packages to the last version that supports Python 3.6. PR [#207](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/207) by [@tiangolo](https://github.com/tiangolo).
+
+#### Docs
+
+* 📝 Add note to discourage Alpine with Python. PR [#122](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/122) by [@tiangolo](https://github.com/tiangolo).
+* 📝 Add warning for Kubernetes, when to use this image. PR [#121](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/121) by [@tiangolo](https://github.com/tiangolo).
+* ✏ Fix typo, repeated word on README. PR [#96](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/96) by [@shelbylsmith](https://github.com/shelbylsmith).
+
+#### Internal
+
 * ⬆️ Update black requirement from ^20.8b1 to ^22.10. PR [#216](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/216) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update docker requirement from ^5.0.3 to ^6.0.1. PR [#217](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/217) by [@dependabot[bot]](https://github.com/apps/dependabot).
-* ✨ Add support for Python 3.10 and 3.11. PR [#220](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/220) by [@tiangolo](https://github.com/tiangolo).
 * 🔥 Remove old Travis file. PR [#219](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/219) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Upgrade CI OS. PR [#218](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/218) by [@tiangolo](https://github.com/tiangolo).
 * 🔧 Update Dependabot config. PR [#213](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/213) by [@tiangolo](https://github.com/tiangolo).
-* ⬆️ Upgrade FastAPI and Uvicorn versions. PR [#212](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/212) by [@tiangolo](https://github.com/tiangolo).
-* 🔥 Deprecate and remove Python 3.6. PR [#211](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/211) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Add scheduled CI. PR [#210](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/210) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Add alls-green GitHub Action. PR [#209](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/209) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Do not run double CI, run on push only on master. PR [#208](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/208) by [@tiangolo](https://github.com/tiangolo).
-* ⬆️ Upgrade packages to the last version that supports Python 3.6. PR [#207](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/207) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Bump actions/setup-python from 4.1.0 to 4.3.0. PR [#201](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/201) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update black requirement from ^19.10b0 to ^20.8b1. PR [#113](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/113) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update docker requirement from ^4.2.0 to ^5.0.3. PR [#125](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/125) by [@dependabot[bot]](https://github.com/apps/dependabot).
@@ -798,14 +827,11 @@ All the image tags, configurations, environment variables and application option
 * ⬆️ Bump tiangolo/issue-manager from 0.2.0 to 0.4.0. PR [#110](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/110) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Bump actions/setup-python from 1 to 4.1.0. PR [#182](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/182) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update pytest requirement from ^5.4.1 to ^7.0.1. PR [#153](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/153) by [@dependabot[bot]](https://github.com/apps/dependabot).
-* 📝 Add note to discourage Alpine with Python. PR [#122](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/122) by [@tiangolo](https://github.com/tiangolo).
-* 📝 Add warning for Kubernetes, when to use this image. PR [#121](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/121) by [@tiangolo](https://github.com/tiangolo).
-* ✏ Fix typo, repeated word on README. PR [#96](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/96) by [@shelbylsmith](https://github.com/shelbylsmith).
 * 📌 Add external dependencies and Dependabot to get automatic upgrade PRs. PR [#109](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/109) by [@tiangolo](https://github.com/tiangolo).
-* ✨ Add Python 3.9 and Python 3.9 Alpine. PR [#67](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/67) by [@graue70](https://github.com/graue70).
 * 👷 Update Latest Changes. PR [#108](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/108) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Allow GitHub workflow dispatch to trigger test and deploy. PR [#93](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/93) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Add latest-changes GitHub action, update issue-manager, add funding. PR [#70](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/70) by [@tiangolo](https://github.com/tiangolo).
+
 ### 0.6.0
 
 * Add docs about installing and pinning dependencies. PR [#41](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/41).
