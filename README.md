@@ -773,6 +773,7 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+* 🔥 Deprecate and remove Python 3.6. PR [#211](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/211) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Add scheduled CI. PR [#210](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/210) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Add alls-green GitHub Action. PR [#209](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/209) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Do not run double CI, run on push only on master. PR [#208](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/208) by [@tiangolo](https://github.com/tiangolo).
