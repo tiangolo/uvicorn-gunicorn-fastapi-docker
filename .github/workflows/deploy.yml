@@ -33,7 +33,7 @@ jobs:
           - name: python3.7-alpine3.8
             python_version: "3.7"
       fail-fast: true
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python
