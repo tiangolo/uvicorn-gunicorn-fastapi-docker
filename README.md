@@ -777,6 +777,7 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+* ⬆️ Update autoflake requirement from ^1.3.1 to ^2.0.0. PR [#215](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/215) by [@dependabot[bot]](https://github.com/apps/dependabot).
 
 ### 0.7.0
 
