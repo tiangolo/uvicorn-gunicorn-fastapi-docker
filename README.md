@@ -777,6 +777,7 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+* ⬆️ Update docker requirement from ^5.0.3 to ^6.0.1. PR [#217](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/217) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ✨ Add support for Python 3.10 and 3.11. PR [#220](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/220) by [@tiangolo](https://github.com/tiangolo).
 * 🔥 Remove old Travis file. PR [#219](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/219) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Upgrade CI OS. PR [#218](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/218) by [@tiangolo](https://github.com/tiangolo).
