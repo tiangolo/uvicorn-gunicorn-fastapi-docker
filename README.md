@@ -777,6 +777,7 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+* ⬆️ Bump fastapi[all] from 0.87.0 to 0.88.0. PR [#222](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/222) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 👷 Add GitHub Action for Docker Hub description. PR [#221](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/221) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Update mypy requirement from ^0.971 to ^0.991. PR [#214](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/214) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆️ Update autoflake requirement from ^1.3.1 to ^2.0.0. PR [#215](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/215) by [@dependabot[bot]](https://github.com/apps/dependabot).
