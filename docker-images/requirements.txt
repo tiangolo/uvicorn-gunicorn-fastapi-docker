@@ -1,3 +1,7 @@
 uvicorn[standard]
 gunicorn
 fastapi[all]
+requests
+urllib3
+requests
+docker
