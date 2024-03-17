@@ -10,7 +10,7 @@ on:
     - cron: "0 0 * * 1"
 
 jobs:
-  build:
+  deploy:
     strategy:
       matrix:
         image:
@@ -38,23 +38,34 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Python
-        uses: actions/setup-python@v5.0.0
+      - name: Set Dockerfile name
+        if: matrix.image.name != 'latest'
+        run: echo "DOCKERFILE_NAME=${{ matrix.image.name }}" >> $GITHUB_ENV
+      - name: Set Dockerfile name latest
+        if: matrix.image.name == 'latest'
+        run: echo "DOCKERFILE_NAME=python${{ matrix.image.python_version }}" >> $GITHUB_ENV
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
         with:
-          python-version: "3.7"
-      - name: Install Dependencies
-        run: python3.7 -m pip install "docker>=4.4.4,<5.0.0" "pytest>=6.2.4,<7.0.0"
-      - name: Deploy Image
-        run: bash scripts/build-push.sh
-        env:
-          NAME: ${{ matrix.image.name }}
-          DOCKERFILE: ${{ matrix.image.dockerfile }}
-          PYTHON_VERSION: ${{ matrix.image.python_version }}
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Get date for tags
+        run: echo "DATE_TAG=$(date -I)" >> "$GITHUB_ENV"
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          platforms: linux/amd64,linux/arm64
+          tags: |
+            tiangolo/uvicorn-gunicorn-fastapi:${{ matrix.image.name }}
+            tiangolo/uvicorn-gunicorn-fastapi:${{ matrix.image.name }}-${{ env.DATE_TAG }} 
+          context: ./docker-images/
+          file: ./docker-images/${{ env.DOCKERFILE_NAME }}.dockerfile
       - name: Docker Hub Description
         uses: peter-evans/dockerhub-description@v4
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
           repository: tiangolo/uvicorn-gunicorn-fastapi
