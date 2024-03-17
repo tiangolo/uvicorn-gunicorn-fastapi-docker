@@ -12,23 +12,21 @@
 * [`python3.9-slim` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.9-slim.dockerfile)
 * [`python3.8-slim` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.8-slim.dockerfile)
 
-## Discouraged tags
-
-* [`python3.9-alpine3.14` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.9-alpine3.14.dockerfile)
-* [`python3.8-alpine3.10` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.8-alpine3.10.dockerfile)
-* [`python3.7-alpine3.8` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.7-alpine3.8.dockerfile)
-
-To learn more about why Alpine images are discouraged for Python read the note at the end: [🚨 Alpine Python Warning](#-alpine-python-warning).
-
 ## Deprecated tags
 
-🚨 These tags are no longer supported or maintained, they are removed from the GitHub repository, but the last version pushed is still available in Docker Hub.
+🚨 These tags are no longer supported or maintained, they are removed from the GitHub repository, but the last versions pushed might still be available in Docker Hub if anyone has been pulling them:
 
+* `python3.9-alpine3.14`
+* `python3.8-alpine3.10`
+* `python3.7-alpine3.8`
 * `python3.6`
 * `python3.6-alpine3.8`
 
-The last versions with date tags for Python 3.6 are:
+The last date tags for these versions are:
 
+* `python3.9-alpine3.14-2024-03-11`
+* `python3.8-alpine3.10-2024-01-29`
+* `python3.7-alpine3.8-2024-03-11`
 * `python3.6-2022-11-25`
 * `python3.6-alpine3.8-2022-11-25`
 
@@ -38,7 +36,7 @@ The last versions with date tags for Python 3.6 are:
 
 # uvicorn-gunicorn-fastapi
 
-[**Docker**](https://www.docker.com/) image with [**Uvicorn**](https://www.uvicorn.org/) managed by [**Gunicorn**](https://gunicorn.org/) for high-performance [**FastAPI**](https://fastapi.tiangolo.com/) web applications in **[Python](https://www.python.org/)** with performance auto-tuning. Optionally in a slim version or based on Alpine Linux.
+[**Docker**](https://www.docker.com/) image with [**Uvicorn**](https://www.uvicorn.org/) managed by [**Gunicorn**](https://gunicorn.org/) for high-performance [**FastAPI**](https://fastapi.tiangolo.com/) web applications in **[Python](https://www.python.org/)** with performance auto-tuning.
 
 **GitHub repo**: [https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker)
 
@@ -143,7 +141,7 @@ This image will set a sensible configuration based on the server it is running o
 
 It has sensible defaults, but you can configure it with environment variables or override the configuration files.
 
-There is also a slim version and another one based on Alpine Linux. If you want one of those, use one of the tags from above.
+There are also slim versions. If you want one of those, use one of the tags from above.
 
 ### `tiangolo/uvicorn-gunicorn`
 
