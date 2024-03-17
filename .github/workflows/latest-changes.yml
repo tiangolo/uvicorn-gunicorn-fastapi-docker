@@ -16,7 +16,7 @@ jobs:
   latest-changes:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           # To allow latest-changes to commit to master
           token: ${{ secrets.UVICORN_GUNICORN_FASTAPI_DOCKER_LATEST_CHANGES }}
