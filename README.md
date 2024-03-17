@@ -775,6 +775,7 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+* ⬆ Bump gunicorn from 20.1.0 to 21.2.0. PR [#270](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/270) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Update mypy requirement from ^0.991 to ^1.4. PR [#269](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/269) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump actions/checkout from 3 to 4. PR [#266](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/266) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump peter-evans/dockerhub-description from 3 to 4. PR [#267](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/267) by [@dependabot[bot]](https://github.com/apps/dependabot).
