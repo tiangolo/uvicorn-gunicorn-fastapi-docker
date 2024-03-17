@@ -1,13 +1,13 @@
 [tool.poetry]
 name = "uvicorn-gunicorn-fastapi-docker"
 version = "0.1.0"
-description = "Docker image with Uvicorn managed by Gunicorn for high-performance FastAPI web applications in Python with performance auto-tuning. Optionally with Alpine Linux."
+description = "Docker image with Uvicorn managed by Gunicorn for high-performance FastAPI web applications in Python with performance auto-tuning."
 authors = ["Sebastián Ramírez <tiangolo@gmail.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.7"
-docker = "^6.0.1"
+docker = ">=6.1.0"
 pytest = "^7.0.1"
 
 [tool.poetry.dev-dependencies]
