@@ -775,6 +775,7 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+* ⬆ Bump tiangolo/issue-manager from 0.4.0 to 0.5.0. PR [#264](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/264) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 👷 Update dependabot. PR [#253](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/253) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Update token for latest changes. PR [#247](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/247) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Bump fastapi[all] from 0.87.0 to 0.88.0. PR [#222](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/222) by [@dependabot[bot]](https://github.com/apps/dependabot).
