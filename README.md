@@ -775,6 +775,7 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+* 📝 Update test badge in `README.md`. PR [#274](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/274) by [@alejsdev](https://github.com/alejsdev).
 * ✨ Add support for multi-arch builds, including support for arm64 (e.g. Mac M1). PR [#273](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/273) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Bump gunicorn from 20.1.0 to 21.2.0. PR [#270](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/270) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Update mypy requirement from ^0.991 to ^1.4. PR [#269](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/269) by [@dependabot[bot]](https://github.com/apps/dependabot).
