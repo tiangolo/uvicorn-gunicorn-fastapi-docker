@@ -775,6 +775,7 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+* ⬆ Bump actions/checkout from 3 to 4. PR [#266](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/266) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump peter-evans/dockerhub-description from 3 to 4. PR [#267](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/267) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump actions/setup-python from 4.3.0 to 5.0.0. PR [#265](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/265) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump tiangolo/issue-manager from 0.4.0 to 0.5.0. PR [#264](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/264) by [@dependabot[bot]](https://github.com/apps/dependabot).
