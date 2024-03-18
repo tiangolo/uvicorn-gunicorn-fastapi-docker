@@ -777,6 +777,7 @@ All the image tags, configurations, environment variables and application option
 
 #### Internal
 
+* 🔧 Add GitHub templates for discussions and templates. PR [#281](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/281) by [@tiangolo](https://github.com/tiangolo).
 * 🔧 Update `latest-changes.yml`. PR [#276](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/276) by [@alejsdev](https://github.com/alejsdev).
 
 ### 0.8.0
