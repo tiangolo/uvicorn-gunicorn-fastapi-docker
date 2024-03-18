@@ -775,6 +775,10 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+#### Internal
+
+* 🔧 Update `latest-changes.yml`. PR [#276](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/276) by [@alejsdev](https://github.com/alejsdev).
+
 ### 0.8.0
 
 #### Features
