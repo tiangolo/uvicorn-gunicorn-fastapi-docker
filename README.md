@@ -775,6 +775,10 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
+#### Docs
+
+* 📝 Add security policy. PR [#283](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/283) by [@tiangolo](https://github.com/tiangolo).
+
 #### Internal
 
 * 🔧 Add GitHub templates for discussions and templates. PR [#281](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/281) by [@tiangolo](https://github.com/tiangolo).
