@@ -781,6 +781,7 @@ All the image tags, configurations, environment variables and application option
 
 #### Internal
 
+* ⬆ Bump actions/setup-python from 4 to 5. PR [#277](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/277) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Update black requirement from ^22.10 to ^23.3. PR [#268](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/268) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 🔧 Add GitHub templates for discussions and templates. PR [#281](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/281) by [@tiangolo](https://github.com/tiangolo).
 * 🔧 Update `latest-changes.yml`. PR [#276](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/276) by [@alejsdev](https://github.com/alejsdev).
