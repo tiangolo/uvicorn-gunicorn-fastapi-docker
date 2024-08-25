@@ -762,6 +762,7 @@ All the image tags, configurations, environment variables and application option
 
 #### Upgrades
 
+* ⬆ Bump gunicorn from 22.0.0 to 23.0.0. PR [#300](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/300) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump gunicorn from 21.2.0 to 22.0.0. PR [#287](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/287) by [@dependabot[bot]](https://github.com/apps/dependabot).
 
 #### Docs
