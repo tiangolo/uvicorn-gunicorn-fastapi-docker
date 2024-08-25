@@ -766,6 +766,7 @@ All the image tags, configurations, environment variables and application option
 
 #### Docs
 
+* 📝 Deprecate this Docker image, use Uvicorn with `--workers` ✨. PR [#303](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/303) by [@tiangolo](https://github.com/tiangolo).
 * 📝 Add security policy. PR [#283](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/283) by [@tiangolo](https://github.com/tiangolo).
 
 #### Internal
