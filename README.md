@@ -1,3 +1,11 @@
+## DEPRECATED 🚨
+
+This Docker image is now deprecated. There's no need to use it, you can just use Uvicorn with `--workers`. ✨
+
+Read more about it below.
+
+---
+
 [![Test](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/actions/workflows/test.yml/badge.svg)](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/actions/workflows/test.yml) [![Deploy](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/workflows/Deploy/badge.svg)](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/actions?query=workflow%3ADeploy)
 
 ## Supported tags and respective `Dockerfile` links
@@ -54,7 +62,7 @@ This image has an **auto-tuning** mechanism included to start a number of worker
 
 You are probably using **Kubernetes** or similar tools. In that case, you probably **don't need this image** (or any other **similar base image**). You are probably better off **building a Docker image from scratch** as explained in the docs for [FastAPI in Containers - Docker: Build a Docker Image for FastAPI](https://fastapi.tiangolo.com/deployment/docker/#replication-number-of-processes).
 
----
+### Cluster Replication
 
 If you have a cluster of machines with **Kubernetes**, Docker Swarm Mode, Nomad, or other similar complex system to manage distributed containers on multiple machines, then you will probably want to **handle replication** at the **cluster level** instead of using a **process manager** (like Gunicorn with Uvicorn workers) in each container, which is what this Docker image does.
 
@@ -78,62 +86,39 @@ CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
 
 You can read more about this in the [FastAPI documentation about: FastAPI in Containers - Docker](https://fastapi.tiangolo.com/deployment/docker/#replication-number-of-processes).
 
-## When to Use this Docker Image
+### Multiple Workers
 
-### A Simple App
+If you definitely want to have multiple workers on a single container, Uvicorn now supports handling subprocesses, including restarting dead ones. So there's no need for Gunicorn to manage multiple workers in a single container.
 
-You could want a process manager like Gunicorn running Uvicorn workers in the container if your application is **simple enough** that you don't need (at least not yet) to fine-tune the number of processes too much, and you can just use an automated default, and you are running it on a **single server**, not a cluster.
+You could modify the example `Dockerfile` from above, adding the `--workers` option to Uvicorn, like:
 
-### Docker Compose
+```Dockerfile
+FROM python:3.9
 
-You could be deploying to a **single server** (not a cluster) with **Docker Compose**, so you wouldn't have an easy way to manage replication of containers (with Docker Compose) while preserving the shared network and **load balancing**.
+WORKDIR /code
 
-Then you could want to have **a single container** with a Gunicorn **process manager** starting **several Uvicorn worker processes** inside, as this Docker image does.
+COPY ./requirements.txt /code/requirements.txt
 
-### Prometheus and Other Reasons
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
-You could also have **other reasons** that would make it easier to have a **single container** with **multiple processes** instead of having **multiple containers** with **a single process** in each of them.
+COPY ./app /code/app
 
-For example (depending on your setup) you could have some tool like a Prometheus exporter in the same container that should have access to **each of the requests** that come.
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80", "--workers", "4"]
+```
 
-In this case, if you had **multiple containers**, by default, when Prometheus came to **read the metrics**, it would get the ones for **a single container each time** (for the container that handled that particular request), instead of getting the **accumulated metrics** for all the replicated containers.
+That's all you need. You don't need this Docker image at all. 😅
 
-Then, in that case, it could be simpler to have **one container** with **multiple processes**, and a local tool (e.g. a Prometheus exporter) on the same container collecting Prometheus metrics for all the internal processes and exposing those metrics on that single container.
-
----
-
-Read more about it all in the [FastAPI documentation about: FastAPI in Containers - Docker](https://fastapi.tiangolo.com/deployment/docker/).
+You can read more about it in the [FastAPI Docs about Deployment with Docker](https://fastapi.tiangolo.com/deployment/docker/).
 
 ## Technical Details
 
-### Uvicorn
+Uvicorn didn't have support for managing worker processing including restarting dead workers. But now it does.
 
-**Uvicorn** is a lightning-fast "ASGI" server.
+Before that, Gunicorn could be used as a process manager, running Uvicorn workers. This added complexity that is no longer necessary.
 
-It runs asynchronous Python web code in a single process.
+## Legacy Docs
 
-### Gunicorn
-
-You can use **Gunicorn** to start and manage multiple Uvicorn worker processes.
-
-That way, you get the best of concurrency and parallelism in simple deployments.
-
-### FastAPI
-
-FastAPI is a modern, fast (high-performance), web framework for building APIs with Python.
-
-The key features are:
-
-* **Fast**: Very high performance, on par with **NodeJS** and **Go** (thanks to Starlette and Pydantic).
-* **Fast to code**: Increase the speed to develop features by about 200% to 300% *.
-* **Less bugs**: Reduce about 40% of human (developer) induced errors. *
-* **Intuitive**: Great editor support. <abbr title="also known as auto-complete, autocompletion, IntelliSense">Completion</abbr> everywhere. Less time debugging.
-* **Easy**: Designed to be easy to use and learn. Less time reading docs.
-* **Short**: Minimize code duplication. Multiple features from each parameter declaration. Less bugs.
-* **Robust**: Get production-ready code. With automatic interactive documentation.
-* **Standards-based**: Based on (and fully compatible with) the open standards for APIs: <a href="https://github.com/OAI/OpenAPI-Specification" target="_blank">OpenAPI</a> (previously known as Swagger) and <a href="http://json-schema.org/" target="_blank">JSON Schema</a>.
-
-<small>* estimation based on tests on an internal development team, building production applications.</small>
+The rest of this document is kept for historical reasons, but you probably don't need it. 😅
 
 ### `tiangolo/uvicorn-gunicorn-fastapi`
 
