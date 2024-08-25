@@ -772,6 +772,7 @@ All the image tags, configurations, environment variables and application option
 
 #### Internal
 
+* ⬆ Bump docker/build-push-action from 5 to 6. PR [#293](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/293) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 📌 Unpin testing dependencies. PR [#304](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/304) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Bump docker/login-action from 1 to 3. PR [#280](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/280) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump docker/setup-buildx-action from 1 to 3. PR [#279](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/279) by [@dependabot[bot]](https://github.com/apps/dependabot).
