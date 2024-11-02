@@ -13,17 +13,17 @@ Read more about it below.
 * [`python3.11`, `latest` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.11.dockerfile)
 * [`python3.10`, _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.10.dockerfile)
 * [`python3.9`, _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.9.dockerfile)
-* [`python3.8`, _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.8.dockerfile)
-* [`python3.7`, _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.7.dockerfile)
 * [`python3.11-slim` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.11-slim.dockerfile)
 * [`python3.10-slim` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.10-slim.dockerfile)
 * [`python3.9-slim` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.9-slim.dockerfile)
-* [`python3.8-slim` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.8-slim.dockerfile)
 
 ## Deprecated tags
 
 🚨 These tags are no longer supported or maintained, they are removed from the GitHub repository, but the last versions pushed might still be available in Docker Hub if anyone has been pulling them:
 
+* `python3.8`
+* `python3.8-slim`
+* `python3.7`
 * `python3.9-alpine3.14`
 * `python3.8-alpine3.10`
 * `python3.7-alpine3.8`
@@ -32,6 +32,9 @@ Read more about it below.
 
 The last date tags for these versions are:
 
+* `python3.8-2024-11-02`
+* `python3.8-slim-2024-11-02`
+* `python3.7-2024-11-02`
 * `python3.9-alpine3.14-2024-03-11`
 * `python3.8-alpine3.10-2024-01-29`
 * `python3.7-alpine3.8-2024-03-11`
@@ -40,7 +43,7 @@ The last date tags for these versions are:
 
 ---
 
-**Note**: There are [tags for each build date](https://hub.docker.com/r/tiangolo/uvicorn-gunicorn-fastapi/tags). If you need to "pin" the Docker image version you use, you can select one of those tags. E.g. `tiangolo/uvicorn-gunicorn-fastapi:python3.7-2019-10-15`.
+**Note**: There are [tags for each build date](https://hub.docker.com/r/tiangolo/uvicorn-gunicorn-fastapi/tags). If you need to "pin" the Docker image version you use, you can select one of those tags. E.g. `tiangolo/uvicorn-gunicorn-fastapi:python3.11-2024-11-02`.
 
 # uvicorn-gunicorn-fastapi
 
