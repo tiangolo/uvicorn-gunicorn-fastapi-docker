@@ -772,6 +772,7 @@ All the image tags, configurations, environment variables and application option
 
 #### Internal
 
+* ⬆ Bump tiangolo/issue-manager from 0.5.0 to 0.5.1. PR [#344](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/344) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 👷 Update `issue-manager.yml`. PR [#343](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/343) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Update `latest-changes` GitHub Action. PR [#340](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/340) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Bump docker/build-push-action from 5 to 6. PR [#293](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/293) by [@dependabot[bot]](https://github.com/apps/dependabot).
