@@ -5,10 +5,10 @@ internal:
         - .github/**
         - .gitignore
       - all-globs-to-all-files:
-        - '!requirements.txt'
+        - '!docker-images/requirements.txt'
 
 upgrade:
   - all:
     - changed-files:
       - any-glob-to-any-file:
-        - requirements.txt
+        - docker-images/requirements.txt
