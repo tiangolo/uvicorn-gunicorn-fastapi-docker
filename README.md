@@ -778,6 +778,7 @@ All the image tags, configurations, environment variables and application option
 
 #### Internal
 
+* 👷 Update labeler config. PR [#365](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/365) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Add CI Labeler. PR [#364](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/364) by [@tiangolo](https://github.com/tiangolo).
 * 🔥 Remove old unused files. PR [#356](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/356) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Bump tiangolo/issue-manager from 0.5.0 to 0.5.1. PR [#344](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/344) by [@dependabot[bot]](https://github.com/apps/dependabot).
