@@ -765,6 +765,7 @@ All the image tags, configurations, environment variables and application option
 
 #### Upgrades
 
+* ⬆ Bump fastapi[all] from 0.115.9 to 0.115.12. PR [#368](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/368) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump uvicorn[standard] from 0.34.0 to 0.34.2. PR [#370](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/370) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump fastapi[all] from 0.115.4 to 0.115.9. PR [#366](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/366) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump uvicorn[standard] from 0.32.0 to 0.34.0. PR [#361](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/361) by [@dependabot[bot]](https://github.com/apps/dependabot).
