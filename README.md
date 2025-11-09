@@ -12,15 +12,15 @@ Read more about it below.
 
 * [`python3.11`, `latest` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.11.dockerfile)
 * [`python3.10`, _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.10.dockerfile)
-* [`python3.9`, _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.9.dockerfile)
 * [`python3.11-slim` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.11-slim.dockerfile)
 * [`python3.10-slim` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.10-slim.dockerfile)
-* [`python3.9-slim` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/blob/master/docker-images/python3.9-slim.dockerfile)
 
 ## Deprecated tags
 
 🚨 These tags are no longer supported or maintained, they are removed from the GitHub repository, but the last versions pushed might still be available in Docker Hub if anyone has been pulling them:
 
+* `python3.9`
+* `python3.9-slim`
 * `python3.8`
 * `python3.8-slim`
 * `python3.7`
@@ -32,6 +32,8 @@ Read more about it below.
 
 The last date tags for these versions are:
 
+* `python3.9-2025-11-09`
+* `python3.9-slim-2025-11-09`
 * `python3.8-2024-11-02`
 * `python3.8-slim-2024-11-02`
 * `python3.7-2024-11-02`
@@ -74,7 +76,7 @@ In those cases (e.g. using Kubernetes) you would probably want to build a **Dock
 For example, your `Dockerfile` could look like:
 
 ```Dockerfile
-FROM python:3.9
+FROM python:3.11
 
 WORKDIR /code
 
@@ -96,7 +98,7 @@ If you definitely want to have multiple workers on a single container, Uvicorn n
 You could modify the example `Dockerfile` from above, adding the `--workers` option to Uvicorn, like:
 
 ```Dockerfile
-FROM python:3.9
+FROM python:3.11
 
 WORKDIR /code
 
@@ -284,7 +286,7 @@ Let's say you have a project managed with [Poetry](https://python-poetry.org/), 
 Then you could have a `Dockerfile` using Docker multi-stage building with:
 
 ```Dockerfile
-FROM python:3.9 as requirements-stage
+FROM python:3.11 as requirements-stage
 
 WORKDIR /tmp
 
