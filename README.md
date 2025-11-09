@@ -784,6 +784,7 @@ All the image tags, configurations, environment variables and application option
 
 #### Internal
 
+* ⬆ Bump actions/checkout from 4 to 5. PR [#379](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/379) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump tiangolo/latest-changes from 0.3.2 to 0.4.0. PR [#378](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/378) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump tiangolo/latest-changes from 0.3.1 to 0.3.2. PR [#357](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/357) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 👷 Update labeler config. PR [#365](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/365) by [@tiangolo](https://github.com/tiangolo).
