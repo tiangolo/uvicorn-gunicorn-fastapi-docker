@@ -788,6 +788,7 @@ All the image tags, configurations, environment variables and application option
 
 #### Internal
 
+* 👷 Upgrade `latest-changes` GitHub Action and pin `actions/checkout@v5`. PR [#404](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/404) by [@tiangolo](https://github.com/tiangolo).
 * 🔥 Drop support for Python 3.9. PR [#398](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/398) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Bump tiangolo/issue-manager from 0.5.1 to 0.6.0. PR [#387](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/387) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump actions/setup-python from 5 to 6. PR [#380](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/380) by [@dependabot[bot]](https://github.com/apps/dependabot).
