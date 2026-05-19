@@ -797,6 +797,7 @@ All the image tags, configurations, environment variables and application option
 
 #### Internal
 
+* ⬆ Bump docker/build-push-action from 6 to 7. PR [#438](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/438) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump docker/setup-buildx-action from 3 to 4. PR [#439](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/439) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump actions/checkout from 5 to 6. PR [#403](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/403) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump peter-evans/dockerhub-description from 4 to 5. PR [#400](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/400) by [@dependabot[bot]](https://github.com/apps/dependabot).
