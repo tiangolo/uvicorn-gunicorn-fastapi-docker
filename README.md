@@ -797,6 +797,7 @@ All the image tags, configurations, environment variables and application option
 
 #### Internal
 
+* 🔧 Remove GitHub configs now in central repo. PR [#451](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/451) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Update Dependabot. PR [#445](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/445) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Bump docker/build-push-action from 6 to 7. PR [#438](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/438) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump docker/setup-buildx-action from 3 to 4. PR [#439](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/439) by [@dependabot[bot]](https://github.com/apps/dependabot).
