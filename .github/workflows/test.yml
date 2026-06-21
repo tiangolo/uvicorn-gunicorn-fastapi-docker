@@ -60,7 +60,6 @@ jobs:
           NAME: ${{ matrix.image.name }}
           PYTHON_VERSION: ${{ matrix.image.python_version }}
   check:
-    permissions: {}
     if: always()
     needs:
       - test
