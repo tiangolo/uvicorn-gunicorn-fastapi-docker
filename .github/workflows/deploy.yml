@@ -7,8 +7,11 @@ on:
   schedule:
     # cron every week on monday
     - cron: "0 0 * * 1"
+permissions: {}
 jobs:
   deploy:
+    permissions:
+      contents: read
     strategy:
       matrix:
         image:
@@ -57,6 +60,3 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           repository: tiangolo/uvicorn-gunicorn-fastapi
-    permissions:
-      contents: read
-permissions: {}
