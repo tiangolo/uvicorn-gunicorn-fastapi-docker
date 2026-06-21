@@ -800,6 +800,7 @@ All the image tags, configurations, environment variables and application option
 
 #### Internal
 
+* 🔒️ Add zizmor workflow security checks. PR [#459](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/459) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Bump the github-actions group across 1 directory with 2 updates. PR [#457](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/457) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 🔧 Remove GitHub configs now in central repo. PR [#451](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/451) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Update Dependabot. PR [#445](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/445) by [@tiangolo](https://github.com/tiangolo).
