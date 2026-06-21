@@ -51,7 +51,9 @@ jobs:
         with:
           push: true
           platforms: linux/amd64,linux/arm64
-          tags: "tiangolo/uvicorn-gunicorn-fastapi:${{ matrix.image.name }}\ntiangolo/uvicorn-gunicorn-fastapi:${{ matrix.image.name }}-${{ env.DATE_TAG }} \n"
+          tags: |
+            tiangolo/uvicorn-gunicorn-fastapi:${{ matrix.image.name }}
+            tiangolo/uvicorn-gunicorn-fastapi:${{ matrix.image.name }}-${{ env.DATE_TAG }} 
           context: ./docker-images/
           file: ./docker-images/${{ env.DOCKERFILE_NAME }}.dockerfile
       - name: Docker Hub Description
