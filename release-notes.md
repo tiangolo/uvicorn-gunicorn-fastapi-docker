@@ -37,6 +37,7 @@
 
 ### Internal
 
+* 📝 Refactor release notes, move to its own file. PR [#463](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/463) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Update issue-manager to 0.7.1. PR [#462](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/462) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Update issue-manager to 0.7.0. PR [#461](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/461) by [@tiangolo](https://github.com/tiangolo).
 * 🔒️ Add zizmor workflow security checks. PR [#459](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/459) by [@tiangolo](https://github.com/tiangolo).
@@ -198,4 +199,3 @@ Highlights of this release:
 ## 0.1.0
 
 * Add support for `/app/prestart.sh`.
-
