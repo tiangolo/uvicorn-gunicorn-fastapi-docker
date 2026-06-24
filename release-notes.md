@@ -37,6 +37,7 @@
 
 ### Internal
 
+* 👷 Update setup-python pin comment to 6.2.0. PR [#464](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/464) by [@tiangolo](https://github.com/tiangolo).
 * 📝 Refactor release notes, move to its own file. PR [#463](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/463) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Update issue-manager to 0.7.1. PR [#462](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/462) by [@tiangolo](https://github.com/tiangolo).
 * ⬆️ Update issue-manager to 0.7.0. PR [#461](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/461) by [@tiangolo](https://github.com/tiangolo).
