@@ -4,6 +4,7 @@
 
 ### Upgrades
 
+* ⬆ Bump uvicorn from 0.52.0 to 0.52.4. PR [#491](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/491) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump fastapi from 0.136.3 to 0.141.1. PR [#484](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/484) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump uvicorn from 0.49.0 to 0.52.0. PR [#485](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/485) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump gunicorn from 25.1.0 to 26.0.0. PR [#448](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/448) by [@dependabot[bot]](https://github.com/apps/dependabot).
@@ -39,6 +40,7 @@
 
 ### Internal
 
+* ⬆ Bump the github-actions group across 1 directory with 3 updates. PR [#495](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/495) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 👷 Migrate automatic labels to Latest Changes. PR [#487](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/487) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Remove legacy label check. PR [#486](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/486) by [@tiangolo](https://github.com/tiangolo).
 * ⬆ Bump the github-actions group across 1 directory with 7 updates. PR [#479](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/479) by [@dependabot[bot]](https://github.com/apps/dependabot).
