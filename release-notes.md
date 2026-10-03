@@ -42,6 +42,7 @@
 
 ### Internal
 
+* ⬆ Bump the github-actions group across 1 directory with 3 updates. PR [#499](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/499) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump the github-actions group across 1 directory with 3 updates. PR [#495](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/495) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 👷 Migrate automatic labels to Latest Changes. PR [#487](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/487) by [@tiangolo](https://github.com/tiangolo).
 * 👷 Remove legacy label check. PR [#486](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker/pull/486) by [@tiangolo](https://github.com/tiangolo).
